@@ -1,0 +1,43 @@
+---
+layout: default
+title: 博客
+description: 深海科普、海洋生物、探索故事与环境保护相关文章。
+permalink: /blog/
+---
+<div class="blog-list">
+  <h1>深海笔记</h1>
+  <p class="subtitle">记录关于海洋的探索、思考与发现。</p>
+
+  {% for post in paginator.posts %}
+  <a href="{{ post.url | relative_url }}" class="post-card">
+    <h2>{{ post.title }}</h2>
+    <p class="excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+    <div class="card-meta">
+      <span>📅 {{ post.date | date: "%Y-%m-%d" }}</span>
+      {% if post.categories %}
+      <span>📁 {{ post.categories | join: " · " }}</span>
+      {% endif %}
+    </div>
+  </a>
+  {% endfor %}
+
+  {% if paginator.total_pages > 1 %}
+  <div class="pagination">
+    {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | relative_url }}">← 上一页</a>
+    {% endif %}
+    {% for page in (1..paginator.total_pages) %}
+      {% if page == paginator.page %}
+      <span class="current">{{ page }}</span>
+      {% elsif page == 1 %}
+      <a href="{{ '/blog/' | relative_url }}">{{ page }}</a>
+      {% else %}
+      <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
+      {% endif %}
+    {% endfor %}
+    {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | relative_url }}">下一页 →</a>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>

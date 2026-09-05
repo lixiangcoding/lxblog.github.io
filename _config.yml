@@ -1,0 +1,63 @@
+# ============ 站点基本信息 ============
+title: 深蓝之下
+subtitle: Into the Deep Blue
+description: 从阳光海面到万米海沟，按深度展开的深海分层科普图鉴：五层海洋带、深海生物、探索简史与保护行动。
+author: 深蓝之下
+email: your-email@example.com
+lang: zh-CN
+timezone: Asia/Shanghai
+
+# ============ 站点地址 ============
+# 本地开发时注释掉 url，部署时改为你的实际域名
+url: ""
+baseurl: ""
+
+# ============ 构建配置 ============
+markdown: kramdown
+highlighter: rouge
+permalink: /blog/:year/:month/:day/:title/
+
+# ============ 分页配置 ============
+paginate: 6
+paginate_path: "/blog/page:num/"
+
+# ============ 主题与插件 ============
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+
+# ============ 集合配置 ============
+collections:
+  posts:
+    output: true
+
+# ============ 默认 Front Matter ============
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: true
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+# ============ 排除文件 ============
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
+  - .gitignore
+  - README.md
+
+# ============ 社交链接（按需修改） ============
+social:
+  github: https://github.com/your-username
+  email: your-email@example.com
