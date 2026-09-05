@@ -1,0 +1,8 @@
+{
+  "name": "lixiangblog",
+  "buildCommand": "",
+  "assets": {
+    "directory": "./",
+    "notFoundStrategy": "404Page"
+  }
+}

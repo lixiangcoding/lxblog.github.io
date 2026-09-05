@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 - 页面未找到 | 深蓝之下</title>
+<style>
+  body{margin:0;min-height:100vh;display:grid;place-items:center;
+    background:linear-gradient(180deg,#0B3D73 0%,#0A2C5C 14%,#0A2150 30%,#081A42 48%,#06122F 66%,#040B20 84%,#02060F 100%);
+    background-attachment:fixed;
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:#E8F2FB;text-align:center;overflow-x:hidden}
+  .box{padding:40px 24px;position:relative;z-index:2}
+  h1{font-size:clamp(64px,12vw,120px);margin:0;line-height:1;
+    background:linear-gradient(180deg,#F0FAFF 20%,#7DD3FC 78%,#38BDF8);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    text-shadow:0 0 60px rgba(56,189,248,.18);font-weight:800;letter-spacing:4px}
+  .en{font-size:14px;letter-spacing:6px;color:#9DB6D4;font-weight:500;margin:14px 0 20px}
+  p{color:#9DB6D4;font-size:16px;margin:0 0 32px;line-height:1.8}
+  a{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:999px;
+    background:linear-gradient(135deg,#22D3EE,#0EA5E9);color:#04203A;
+    text-decoration:none;font-weight:600;font-size:15px;
+    box-shadow:0 10px 30px -8px rgba(34,211,238,.55);transition:.28s}
+  a:hover{transform:translateY(-2px);box-shadow:0 16px 38px -10px rgba(34,211,238,.7)}
+  .bubbles{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+  .bubble{position:absolute;bottom:-40px;border-radius:50%;
+    background:radial-gradient(circle at 32% 30%,rgba(255,255,255,.55),rgba(125,211,252,.10) 60%,transparent);
+    opacity:0;animation:rise linear infinite}
+  @keyframes rise{
+    0%{transform:translateY(0) scale(.6);opacity:0}
+    12%{opacity:.7}
+    88%{opacity:.35}
+    100%{transform:translateY(-110vh) scale(1.05);opacity:0}
+  }
+</style>
+</head>
+<body>
+  <div class="bubbles" id="bubbles"></div>
+  <div class="box">
+    <h1>404</h1>
+    <div class="en">PAGE NOT FOUND</div>
+    <p>你潜入了一片未知的海域，这个页面不存在。<br>也许它被深海的洋流带走了。</p>
+    <a href="/">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 19V5m0 0l-6 6m6-6l6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      返回海面
+    </a>
+  </div>
+  <script>
+    (function(){
+      var box=document.getElementById('bubbles');
+      if(box){
+        var n=window.innerWidth<640?8:14;
+        for(var i=0;i<n;i++){
+          var b=document.createElement('span');
+          b.className='bubble';
+          var size=4+Math.random()*14;
+          b.style.left=(Math.random()*100)+'%';
+          b.style.width=size+'px';b.style.height=size+'px';
+          b.style.animationDuration=(9+Math.random()*12)+'s';
+          b.style.animationDelay=(-Math.random()*16)+'s';
+          box.appendChild(b);
+        }
+      }
+    })();
+  </script>
+</body>
+</html>
